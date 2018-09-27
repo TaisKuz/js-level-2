@@ -7,20 +7,28 @@
 (function (d) {
     d.onreadystatechange = () => {
         if (d.readyState === "complete") {
+            const mainContent = d.querySelector('#main-content');
 
             // базовый класс Container
             class Container {
-                constructor(id, className, content, htmlCode) {
+                constructor(id, className, content, nodeType) {
                     this.content = content;
                     this.id = id;
                     this.className = className;
-                    this.htmlCode = htmlCode;
+                    this.nodeType = nodeType;
                 }
 
                 render() {
-                    console.log(`${this.id} is added`);
-                    const htmlCode = `<${this.htmlCode} id="${this.id}" class="${this.className}">${this.content}</${this.htmlCode}>`
-                    return htmlCode;
+                    let node = d.createElement(this.nodeType);
+                    const nodeContent = document.createTextNode(this.content);
+                    node.setAttribute('id', this.id);
+                    node.setAttribute('class', this.className);
+                    node.appendChild(nodeContent);
+
+                    if (mainContent){
+                        mainContent.appendChild(node);
+                        console.log(`${this.id} is added`);
+                    }
                 }
             };
 
@@ -28,18 +36,18 @@
             // Улучшить базовый класс, добавив в него общий для всех метод remove(),
             // который удаляет контейнер.
             Container.prototype.remove = function() {
-                const container = d.querySelector(`#${this.id}`);
+                const node = d.querySelector(`#${this.id}`);
 
-                if (container)
+                if (node)
+                    node.remove();
                     console.log(`${this.id} was removed`);
-                    container.remove();
             };
 
             const box = new Container('box', 'box', 'I am a box', 'div');
             const xbox = new Container('xbox', 'xbox', 'I am an xbox', 'div');
 
-            d.write(box.render(), xbox.render());
-
+            box.render();
+            xbox.render();
             box.remove();
         }
     }

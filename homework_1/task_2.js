@@ -8,7 +8,7 @@
     d.onreadystatechange = () => {
         if (d.readyState === "complete") {
 
-            // const mainContant = d.querySelector('#main-contant');
+            const mainContant = d.querySelector('#main-contant');
 
             // базовый класс Container
             class Container {
@@ -38,6 +38,9 @@
                 render() {
                     if (this.items.lenght == 0) return;
 
+                    let menuListq = d.createElement('ul');
+                    menuListq.classList.add(this.className);
+                    console.log('menuList', menuListq);
                     let menuList = `<ul class="${this.className}" id="${this.id}">`;
 
                     for (let item in this.items) {
