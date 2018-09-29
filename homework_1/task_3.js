@@ -25,41 +25,41 @@
 // нужен класс Гамбургер, константы, методы для выбора опций и расчета нужных величин).
 
 class Hamburger {
-    constructor(size, stuffing) {
-        this.size = size;
-        this.stuffing = stuffing;
-        this.toppings = [];
-    }
+  constructor(size, stuffing) {
+    this.size = size;
+    this.stuffing = stuffing;
+    this.toppings = [];
+  }
 
-    // Добавить добавку к гамбургеру. Можно добавить несколько
-    // добавок, при условии, что они разные.
-    set toppings(toppings) {
-        if (toppings.lenght == 0) return;
+  // Добавить добавку к гамбургеру. Можно добавить несколько
+  // добавок, при условии, что они разные.
+  set toppings(toppings) {
+    if (toppings.lenght == 0) return;
 
-        let toppingsList = [];
-        for (let topping in toppings) {
-            for (let index in this.toppings) {
-                if (toppings[topping] !== this.toppings[index]) {
-                    toppingsList.push(toppings[topping]);
-                }
-            }
+    let toppingsList = [];
+    for (let topping in toppings) {
+      for (let index in this.toppings) {
+        if (toppings[topping] !== this.toppings[index]) {
+          toppingsList.push(toppings[topping]);
         }
-        [this.toppings] = toppingsList;
-    };
-
-    removeToppings(toppings) {
-        if (toppings.lenght == 0 || this.toppings.lenght == 0) return;
-
-        let toppingsList = this.toppings;
-        for (let topping in toppings) {
-            for (let index in this.toppings) {
-                if (toppings[topping] === this.toppings[index]) {
-                    toppingsList.splice(index, index);
-                }
-            }
-        }
-        [this.toppings] = toppingsList;
+      }
     }
+    [this.toppings] = toppingsList;
+  };
+
+  removeToppings(toppings) {
+    if (toppings.lenght == 0 || this.toppings.lenght == 0) return;
+
+    let toppingsList = this.toppings;
+    for (let topping in toppings) {
+      for (let index in this.toppings) {
+        if (toppings[topping] === this.toppings[index]) {
+          toppingsList.splice(index, index);
+        }
+      }
+    }
+    [this.toppings] = toppingsList;
+  }
 };
 
 //  Размеры, виды начинок и добавок
