@@ -30,7 +30,7 @@ function CoffeeMachine(power) {
 	// время приготовления
 	let cookingTime
 
-	this.fill = function (newWaterAmount, newBeenAmount) {
+	this.fill = (newWaterAmount, newBeenAmount) => {
 
 		// мне не нравится, что 3 раза повторяется почти идентичная конструкция из if
 		// стоит ли выносить это в функцию ?
