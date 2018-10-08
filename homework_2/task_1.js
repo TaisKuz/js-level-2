@@ -35,7 +35,7 @@
 		const submitButton = d.querySelector('#js-submit-button');
 		const showUsersButton = d.querySelector('#js-show-users-button');
 		const form = d.querySelector('#js-user-form');
-		
+		 
 		// 1. Реализовать вывод списка пользователей(http://89.108.65.123/user)
 		showUsersButton.addEventListener('click', e => {
 			const usersListWrapper = d.querySelector('#js-user-list-wrapper');

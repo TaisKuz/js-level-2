@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS-level-2 homework-3 all tasks</title>
+    <style>
+      .error-message {
+        visibility: visible;
+        color: red;
+      }
+
+      .error-message.disabled {
+        visibility: hidden;
+      }
+
+    </style>
+</head>
+<body>
+  <div id="main-content-1">
+    <form id="js-user-form">
+      <label for="js-name">Имя</label>
+      <input id="js-name" type="text" name="name" placeholder="Введите имя">
+      <label for="js-phone">Телефон</label>
+      <input id="js-phone" type="tel" name="phone" placeholder="Введите телефон">
+      <label for="js-email">Email</label>
+      <input id="js-email" type="email" name="email" placeholder="Введите email">
+      <label for="js-text">Возраст</label>
+      <textarea id="js-text" rows="4" cols="50"></textarea>
+      <input id="js-submit-button" type="submit" name="submit-button" value="Отправить">
+    </form>
+    <span id="js-error" class="error-message disabled"></span>
+  </div>
+  <script type="text/javascript" src="task_1.js"></script>
+</body>
+</html>
